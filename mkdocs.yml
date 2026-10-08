@@ -1,0 +1,48 @@
+site_name: Exergon Engineering Codex
+site_description: Open engineering notes, methods, and computational experiments.
+site_url: https://wiki.exergon.us/
+repo_url: https://github.com/hypergolic-zero/engineering-wiki
+edit_uri: edit/main/docs/
+
+nav:
+  - Home: index.md
+  - Aerospace Systems: aerospace/index.md
+  - Propulsion: propulsion/index.md
+  - Avionics: avionics/index.md
+  - Embedded Systems: embedded-systems/index.md
+  - Computational Physics: computational-physics/index.md
+  - Engineering Methods: engineering-methods/index.md
+
+plugins:
+  - search
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
