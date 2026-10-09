@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "defaultMode": "default",
+    "disableBypassPermissionsMode": "disable",
+    "allow": [
+      "Bash(source .venv/bin/activate)",
+      "Bash(python -m mkdocs build *)",
+      "Bash(git switch *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git pull --ff-only origin main)",
+      "Bash(gh pr list *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr diff *)",
+      "Bash(gh run list *)",
+      "Bash(gh run view *)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(gh pr create *)",
+      "Bash(git config *)",
+      "Bash(python -m pip install *)",
+      "Bash(pip install *)",
+      "Bash(rm *)",
+      "Edit(/.github/**)",
+      "Edit(/requirements.txt)",
+      "Edit(/CLAUDE.md)",
+      "Edit(/.claude/**)"
+    ],
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(git push *--force*)",
+      "Bash(git push -f*)",
+      "Bash(git push * -f*)",
+      "Bash(git commit *--no-verify*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean *)",
+      "Bash(git remote add *)",
+      "Bash(git remote remove *)",
+      "Bash(git remote set-url *)",
+      "Bash(gh pr merge *)",
+      "Bash(gh api *)",
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "Bash(gh ruleset *)",
+      "Bash(gh secret *)",
+      "Bash(gh variable *)",
+      "Bash(gh workflow *)",
+      "Bash(gh ssh-key *)",
+      "Read(~/.ssh/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.config/gh/**)",
+      "Read(~/.gitconfig)",
+      "Read(~/.gitconfig-personal)",
+      "Read(~/engineering-notes/**)",
+      "Read(~/development/**)",
+      "Read(.env)",
+      "Read(.env.*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/build-on-stop.sh",
+            "timeout": 180,
+            "statusMessage": "Running the strict MkDocs build"
+          }
+        ]
+      }
+    ]
+  }
+}
